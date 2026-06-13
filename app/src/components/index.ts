@@ -1,0 +1,23 @@
+// Part 0 shared component inventory (spec §0.3) — later parts import from here.
+export { Ic, P, StatusIcon, CropIcon, CropBadge, CROP_TINTS } from "./icons";
+export type { StatusTone, CropKey } from "./icons";
+export { StatusPill } from "./StatusPill";
+export { AppBar } from "./AppBar";
+export { TabBar } from "./TabBar";
+export { LanguageSwitcher } from "./LanguageSwitcher";
+export { FieldCard } from "./FieldCard";
+export { RecommendationHero } from "./RecommendationHero";
+export { DepletionGauge } from "./DepletionGauge";
+export { WeatherStrip } from "./WeatherStrip";
+export type { WeatherDay } from "./WeatherStrip";
+export { SalinityScale } from "./SalinityScale";
+export { Sparkline } from "./Sparkline";
+export { SmsBubble } from "./SmsBubble";
+export { WizardFrame } from "./WizardFrame";
+export { BottomSheet } from "./BottomSheet";
+export { ConfirmDialog } from "./ConfirmDialog";
+export { ToastProvider, useToast } from "./Toast";
+export { Skeleton, SkeletonCard } from "./Skeleton";
+export { OfflineBanner } from "./OfflineBanner";
+export { InstallHint } from "./InstallHint";
+export { ErrorBoundary } from "./ErrorBoundary";

@@ -1,0 +1,51 @@
+/* ============================================================
+   AridSmart — design tokens
+   Direction: water blue / teal · utilitarian + warm
+   Type: Noto Sans (kaa Latin-Ext + cyrillic) + Space Grotesk (numerals)
+   Status is NEVER color alone — always icon + word (see .pill)
+   ============================================================ */
+
+:root {
+  /* surfaces — cool-toned, sunlight-legible */
+  --bg: #f3f6f7;
+  --surface: #ffffff;
+  --line: #dce5e8;
+  --line-strong: #c2d0d5;
+
+  /* ink */
+  --ink: #142830;
+  --ink-2: #4d6069;
+  --ink-3: #87989f;
+
+  /* brand — deep water blue + teal accent */
+  --brand: #0e3a4d;
+  --brand-soft: #e3edf1;
+  --accent: #16778f;
+  --accent-soft: #e0f0f3;
+
+  /* status system (fixed by spec): green / amber / red / grey */
+  --ok: #18713f;
+  --ok-bg: #e1f1e7;
+  --ok-line: #9fd0b2;
+  --warn: #8a5a05;
+  --warn-bg: #fcefd3;
+  --warn-line: #ecca84;
+  --bad: #ae2e21;
+  --bad-bg: #fbe6e2;
+  --bad-line: #efb1a8;
+  --na: #5b6b71;
+  --na-bg: #eaeff0;
+  --na-line: #c9d4d7;
+
+  --radius: 12px;
+  --radius-lg: 16px;
+  --font-ui: "Noto Sans", system-ui, sans-serif;
+  --font-num: "Space Grotesk", "Noto Sans", system-ui, sans-serif;
+  --shadow: 0 1px 2px rgba(14, 58, 77, 0.06), 0 4px 14px rgba(14, 58, 77, 0.07);
+  --shadow-up: 0 -4px 20px rgba(14, 58, 77, 0.18);
+
+  /* layout */
+  --appbar-h: 56px;
+  --tab-h: 66px;
+  --max-w: 720px; /* desktop = stretched single column */
+}

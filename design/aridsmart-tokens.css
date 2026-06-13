@@ -1,0 +1,219 @@
+/* ============================================================
+   AridSmart — design tokens + shared component styles
+   Direction: water blue / teal · utilitarian + warm
+   Type: Noto Sans (kaa Latin Ext coverage) + Space Grotesk (numerals)
+   Status is NEVER color alone — always icon + word (see .pill)
+   ============================================================ */
+
+:root {
+  /* surfaces — cool-toned, sunlight-legible */
+  --bg: #f3f6f7;
+  --surface: #ffffff;
+  --line: #dce5e8;
+  --line-strong: #c2d0d5;
+
+  /* ink */
+  --ink: #142830;
+  --ink-2: #4d6069;
+  --ink-3: #87989f;
+
+  /* brand — deep water blue + teal accent */
+  --brand: #0e3a4d;
+  --brand-soft: #e3edf1;
+  --accent: #16778f;
+  --accent-soft: #e0f0f3;
+
+  /* status system (fixed by spec) */
+  --ok: #18713f;     --ok-bg: #e1f1e7;   --ok-line: #9fd0b2;
+  --warn: #8a5a05;   --warn-bg: #fcefd3; --warn-line: #ecca84;
+  --bad: #ae2e21;    --bad-bg: #fbe6e2;  --bad-line: #efb1a8;
+  --na: #5b6b71;     --na-bg: #eaeff0;   --na-line: #c9d4d7;
+
+  --radius: 12px;
+  --radius-lg: 16px;
+  --font-ui: "Noto Sans", system-ui, sans-serif;
+  --font-num: "Space Grotesk", "Noto Sans", system-ui, sans-serif;
+  --shadow: 0 1px 2px rgba(14, 58, 77, 0.06), 0 4px 14px rgba(14, 58, 77, 0.07);
+}
+
+/* ---------- screen frame ---------- */
+.scr {
+  width: 100%; height: 100%;
+  background: var(--bg);
+  font-family: var(--font-ui);
+  color: var(--ink);
+  font-size: 16px; line-height: 1.45;
+  display: flex; flex-direction: column;
+  position: relative; overflow: hidden;
+  text-rendering: optimizeLegibility;
+}
+.scr * { box-sizing: border-box; }
+.scroll-body { flex: 1; display: flex; flex-direction: column; gap: 12px; padding: 14px 16px 18px; }
+
+/* ---------- app bar ---------- */
+.appbar {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px 10px 16px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  min-height: 56px; flex: none;
+}
+.appbar .title { font-size: 18px; font-weight: 700; flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.appbar .sub { font-size: 12.5px; font-weight: 400; color: var(--ink-2); display: block; line-height: 1.2; }
+.iconbtn {
+  width: 48px; height: 48px; flex: none;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 12px; color: var(--ink-2); background: transparent; border: none;
+}
+.lang {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 1.5px solid var(--line-strong); border-radius: 999px;
+  padding: 0 12px; height: 40px; flex: none;
+  font: 700 13px var(--font-num); letter-spacing: 0.04em; color: var(--brand);
+  background: var(--surface);
+}
+
+/* ---------- bottom tab bar ---------- */
+.tabbar {
+  margin-top: auto; flex: none;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  background: var(--surface); border-top: 1px solid var(--line);
+  padding: 4px 4px 10px;
+}
+.tab {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  min-height: 52px; font-size: 11.5px; font-weight: 600; color: var(--ink-3);
+  border-radius: 10px;
+}
+.tab.on { color: var(--brand); }
+.tab.on .tabglow { background: var(--brand-soft); }
+.tabglow { display: flex; align-items: center; justify-content: center; width: 52px; height: 26px; border-radius: 999px; }
+
+/* ---------- status pill: color + icon + word ---------- */
+.pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  border-radius: 999px; padding: 4px 11px 4px 8px;
+  font-size: 13px; font-weight: 700; line-height: 1.3;
+  border: 1px solid transparent; white-space: nowrap;
+}
+.pill svg { flex: none; }
+.pill.ok   { background: var(--ok-bg);   color: var(--ok);   border-color: var(--ok-line); }
+.pill.warn { background: var(--warn-bg); color: var(--warn); border-color: var(--warn-line); }
+.pill.bad  { background: var(--bad-bg);  color: var(--bad);  border-color: var(--bad-line); }
+.pill.na   { background: var(--na-bg);   color: var(--na);   border-color: var(--na-line); }
+
+/* ---------- cards ---------- */
+.card {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 14px; box-shadow: var(--shadow);
+}
+.card h3 { margin: 0 0 8px; font-size: 13px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-2); }
+.cardrow { display: flex; align-items: center; gap: 10px; }
+
+/* ---------- numbers are the product ---------- */
+.num { font-family: var(--font-num); font-variant-numeric: tabular-nums; }
+.big-num { font: 700 38px/1.05 var(--font-num); letter-spacing: -0.01em; }
+.mid-num { font: 700 22px/1.1 var(--font-num); }
+
+/* ---------- buttons ---------- */
+.btn {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 50px; border-radius: 12px; padding: 0 18px;
+  font: 700 16px var(--font-ui); border: none; width: 100%;
+}
+.btn.pri { background: var(--brand); color: #fff; }
+.btn.sec { background: var(--surface); color: var(--brand); border: 1.5px solid var(--line-strong); }
+.btn.danger { background: var(--bad); color: #fff; }
+.btn.ghost { background: transparent; color: var(--accent); min-height: 44px; }
+.btn.sm { min-height: 42px; font-size: 14.5px; width: auto; }
+
+/* ---------- chips / segmented ---------- */
+.chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  border-radius: 999px; border: 1.5px solid var(--line-strong);
+  background: var(--surface); padding: 0 13px; height: 40px;
+  font-size: 13.5px; font-weight: 700; color: var(--ink-2); white-space: nowrap;
+}
+.chip.on-warn { background: var(--warn-bg); border-color: var(--warn-line); color: var(--warn); }
+.chip.on-bad  { background: var(--bad-bg);  border-color: var(--bad-line);  color: var(--bad); }
+.chip.on-ok   { background: var(--ok-bg);   border-color: var(--ok-line);   color: var(--ok); }
+.seg { display: flex; background: var(--na-bg); border-radius: 10px; padding: 3px; gap: 2px; }
+.seg > span {
+  flex: 1; text-align: center; padding: 8px 12px; border-radius: 8px;
+  font-size: 13.5px; font-weight: 700; color: var(--ink-2); white-space: nowrap;
+}
+.seg > span.on { background: var(--surface); color: var(--brand); box-shadow: 0 1px 3px rgba(14,58,77,0.15); }
+
+/* ---------- form bits ---------- */
+.field-label { font-size: 13.5px; font-weight: 700; color: var(--ink-2); margin-bottom: 6px; display: block; }
+.input {
+  display: flex; align-items: center; gap: 8px;
+  border: 1.5px solid var(--line-strong); border-radius: 10px; background: var(--surface);
+  min-height: 50px; padding: 0 14px; font-size: 16px; color: var(--ink); width: 100%;
+}
+.input .ph { color: var(--ink-3); }
+
+/* ---------- banners / toasts ---------- */
+.banner-offline {
+  display: flex; align-items: center; gap: 8px; flex: none;
+  background: var(--warn-bg); color: var(--warn); border-bottom: 1px solid var(--warn-line);
+  padding: 7px 16px; font-size: 13px; font-weight: 700;
+}
+.toast {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--ink); color: #fff; border-radius: 10px;
+  padding: 12px 16px; font-size: 14.5px; font-weight: 600; box-shadow: var(--shadow);
+}
+
+/* ---------- skeletons ---------- */
+.skel { background: linear-gradient(100deg, #e4ebed 40%, #eef3f4 50%, #e4ebed 60%); border-radius: 8px; }
+
+/* ---------- gauges / scales ---------- */
+.gauge-track { position: relative; height: 16px; border-radius: 8px; background: var(--accent-soft); overflow: visible; }
+.gauge-fill { position: absolute; inset: 0 auto 0 0; border-radius: 8px; background: var(--accent); }
+.gauge-thresh { position: absolute; top: -5px; bottom: -5px; width: 3px; border-radius: 2px; background: var(--ink); }
+.gauge-marker {
+  position: absolute; top: -9px; width: 0; height: 0; transform: translateX(-7px);
+  border-left: 7px solid transparent; border-right: 7px solid transparent; border-top: 9px solid var(--bad);
+}
+.gauge-labels { display: flex; justify-content: space-between; font-size: 12px; color: var(--ink-3); margin-top: 6px; font-weight: 600; }
+
+/* ---------- 7-day strip ---------- */
+.strip7 { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
+.strip7 .day {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 8px 0 7px; border-radius: 9px; border: 1.5px solid transparent;
+  font-size: 12px; color: var(--ink-2);
+}
+.strip7 .day .dw { font: 700 12px var(--font-ui); color: var(--ink-3); }
+.strip7 .day .v { font: 700 12.5px var(--font-num); color: var(--ink); }
+.strip7 .day .v2 { font: 500 11.5px var(--font-num); color: var(--ink-3); }
+.strip7 .day.hl { background: var(--brand-soft); border-color: var(--brand); }
+.strip7 .day.hl .dw { color: var(--brand); }
+
+/* ---------- list rows ---------- */
+.lrow {
+  display: flex; align-items: center; gap: 12px; min-height: 56px;
+  padding: 10px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+}
+
+/* ---------- misc ---------- */
+.meta { font-size: 12.5px; color: var(--ink-3); }
+.divider { height: 1px; background: var(--line); margin: 2px 0; }
+.fab {
+  position: absolute; right: 16px; bottom: 84px;
+  display: flex; align-items: center; gap: 8px; height: 52px; padding: 0 18px;
+  border-radius: 999px; background: var(--brand); color: #fff;
+  font: 700 15px var(--font-ui); box-shadow: 0 4px 16px rgba(14,58,77,0.35);
+}
+.dots { display: flex; gap: 6px; align-items: center; }
+.dots i { width: 8px; height: 8px; border-radius: 50%; background: var(--line-strong); }
+.dots i.on { background: var(--brand); width: 22px; border-radius: 4px; }
+
+/* striped placeholder for imagery (per low-bandwidth constraint) */
+.placeholder {
+  background: repeating-linear-gradient(45deg, #e8eef0 0 10px, #f1f5f6 10px 20px);
+  border: 1.5px dashed var(--line-strong); border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink-3); font: 500 12px/1.4 ui-monospace, monospace; text-align: center; padding: 10px;
+}

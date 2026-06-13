@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AridSmart — Screen Designs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="aridsmart-tokens.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  body { margin: 0; }
+  .readme { font: 400 13.5px/1.65 "Noto Sans", sans-serif; color: #2c3e46; padding: 22px 24px; height: 100%; box-sizing: border-box; background: #fff; overflow: hidden; }
+  .readme h2 { font: 700 15px "Noto Sans", sans-serif; margin: 0 0 4px; color: #0e3a4d; }
+  .readme h4 { font: 700 11px ui-monospace, monospace; letter-spacing: .08em; color: #87989f; margin: 16px 0 4px; }
+  .readme p { margin: 0 0 6px; }
+  .readme b { color: #142830; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="lib/design-canvas.jsx"></script>
+<script type="text/babel" src="canvas/shared.jsx"></script>
+<script type="text/babel" src="canvas/screens-core.jsx"></script>
+<script type="text/babel" src="canvas/screens-flows.jsx"></script>
+<script type="text/babel" src="canvas/screens-states.jsx"></script>
+<script type="text/babel">
+function ReadMe() {
+  return (
+    <div className="readme">
+      <h2>AridSmart — screen designs, pass 1</h2>
+      <p>Phase 1 of 2: static hi-fi screens for review. Phase 2 builds the working PWA prototype (Leaflet map, language switcher, state toggles) from the approved direction.</p>
+      <h4>DESIGN REASONING</h4>
+      <p><b>Water blue + teal</b> base — calm, governmental trust; warmth comes from generous spacing and plain language, not decoration. The fixed status palette (green/amber/red/grey) is reserved for meaning only — the brand never competes with it.</p>
+      <p><b>Numbers are the product:</b> Space Grotesk at 38px for mm / dS/m / dates; headings stay small and quiet. Noto Sans covers Karakalpak Á ǵ ı ń ó ú.</p>
+      <p><b>Sunlight + cheap screens:</b> near-black on white, AA+ contrast, 48px targets, no photos, SVG-only icons.</p>
+      <h4>ASSUMPTIONS — PLEASE CHECK</h4>
+      <p>1. Karakalpak strings are my <b>placeholder translations</b> — they need review by a native speaker.</p>
+      <p>2. Crop icons use one sprout glyph (tinted) as placeholder — real per-crop icons in phase 2.</p>
+      <p>3. Maps here are stylized stand-ins; the prototype uses real Leaflet + OSM.</p>
+      <p>4. Demo data: 3 fields near Nukus (cotton / rice / winter wheat), ECe 5.8 / 9.4 / 3.1 dS/m.</p>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <DesignCanvas>
+      <DCSection id="found" title="0 · Read me + Foundations" subtitle="Rationale, tokens, type, status system">
+        <DCArtboard id="readme" label="Read me" width={470} height={620}><ReadMe /></DCArtboard>
+        <DCArtboard id="tokens" label="Foundations — color · type · pills · controls" width={760} height={620}><BoardFoundations /></DCArtboard>
+      </DCSection>
+
+      <DCSection id="core" title="1 · Core loop" subtitle="Onboarding → Home → Field Report → Salinity (360px-wide, full scroll height shown)">
+        <DCArtboard id="lang" label="0a · Language select" width={360} height={640}><ScrLang /></DCArtboard>
+        <DCArtboard id="intro" label="0d · Intro card 3/3" width={360} height={640}><ScrIntro /></DCArtboard>
+        <DCArtboard id="home" label="1 · Home — dashboard" width={360} height={860}><ScrHome /></DCArtboard>
+        <DCArtboard id="report" label="4 · Field Report — core screen" width={360} height={1330}><ScrReport /></DCArtboard>
+        <DCArtboard id="salinity" label="5 · Salinity detail" width={360} height={1030}><ScrSalinity /></DCArtboard>
+      </DCSection>
+
+      <DCSection id="manage" title="2 · Fields + Add-Field wizard" subtitle="Map with bottom sheet, list fallback, 3-step wizard">
+        <DCArtboard id="fmap" label="2 · Fields — map + bottom sheet" width={360} height={820}><ScrFieldsMap /></DCArtboard>
+        <DCArtboard id="flist" label="2 · Fields — list view (offline fallback)" width={360} height={660}><ScrFieldsList /></DCArtboard>
+        <DCArtboard id="wiz1" label="3 · Wizard 1/3 — location" width={360} height={640}><ScrWiz1 /></DCArtboard>
+        <DCArtboard id="wiz2" label="3 · Wizard 2/3 — field &amp; crop" width={360} height={930}><ScrWiz2 /></DCArtboard>
+        <DCArtboard id="wiz3" label="3 · Wizard 3/3 — farmer &amp; SMS" width={360} height={850}><ScrWiz3 /></DCArtboard>
+      </DCSection>
+
+      <DCSection id="comms" title="3 · Messages + Settings">
+        <DCArtboard id="msgs" label="6 · Messages — SMS center" width={360} height={950}><ScrMessages /></DCArtboard>
+        <DCArtboard id="settings" label="7 · Settings" width={360} height={1185}><ScrSettings /></DCArtboard>
+      </DCSection>
+
+      <DCSection id="states" title="4 · System states + overlays" subtitle="Every screen has a defined offline / empty / loading state">
+        <DCArtboard id="empty" label="Home — empty" width={360} height={640}><ScrHomeEmpty /></DCArtboard>
+        <DCArtboard id="loading" label="Home — loading skeleton" width={360} height={700}><ScrHomeLoading /></DCArtboard>
+        <DCArtboard id="offline" label="Home — offline (cache + no-cache)" width={360} height={825}><ScrHomeOffline /></DCArtboard>
+        <DCArtboard id="salnodata" label="Salinity — no data yet" width={360} height={620}><ScrSalinityNoData /></DCArtboard>
+        <DCArtboard id="overlays" label="Toast · dialog · PWA hint · boot error" width={690} height={620}><BoardOverlays /></DCArtboard>
+      </DCSection>
+    </DesignCanvas>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Environment secrets
+.env
+.env.local
+.env.*.local
+
+# Build output
+app/dist/
+
+# OS
+.DS_Store
+
+# Claude Code local settings
+.claude/

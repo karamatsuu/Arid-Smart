@@ -205,7 +205,7 @@ a {
 .tabbar {
   flex: none;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   background: var(--surface);
   border-top: 1px solid var(--line);
   padding: 4px 4px calc(10px + env(safe-area-inset-bottom));

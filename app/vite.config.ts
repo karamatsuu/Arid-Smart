@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig(({ command }) => ({
-  base: command === "build" ? "/AridSmart/" : "/",
+  base: command === "build" ? "/Arid-Smart/" : "/",
   plugins: [
     react(),
     VitePWA({
